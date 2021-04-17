@@ -3,13 +3,18 @@ function successFunction(data) {
     for (let i = 1; i < nuevo.length; i++) {
 
         var datos = nuevo[i].split(",");
-        console.log(datos[0]);
+        var request = new XMLHttpRequest()  
 
+        request.open('POST', `http://127.0.0.1:5000/api/insertuser`, true) 
+        request.setRequestHeader('Content-type', 'application/json');
 
-
-        var request = new XMLHttpRequest()
-
-        request.open('GET', `http://127.0.0.1:5000/api/users/${datos[0]}`, true)
+        var params = `{
+            "id":"${datos[0]}",
+            "password":"${datos[1]}",
+            "nombre":"${datos[2]}",
+            "apellido":"${datos[3]}",
+            "edad":"${datos[4]}" 
+        }` 
         request.onload = function () {
             // Begin accessing JSON data here
             var data = JSON.parse(this.response)
@@ -21,7 +26,7 @@ function successFunction(data) {
             }
         }
 
-        request.send()
+        request.send(params) 
 
 
 
