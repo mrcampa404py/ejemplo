@@ -28,12 +28,6 @@ function successFunction(data) {
 
         request.send(params) 
 
-
-
-
-
-
-
     }
 }
 

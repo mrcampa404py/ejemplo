@@ -17,7 +17,7 @@ usuarios = []
 def get_users(): 
     response = []
     for i in usuarios: 
-        response.append({'nombre':i.id,'contrasenia':i.password})
+        response.append({'id':i.id,'password':i.password,'nombre':i.nombre,'apellido':i.apellido,'edad':i.edad}) 
     return jsonify(response) 
 
 @app.route('/api/users/<id>',methods=['GET'])
