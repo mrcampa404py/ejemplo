@@ -147,4 +147,3 @@ function llenar_tabla() {
 }
 
 llenar_tabla();
-
